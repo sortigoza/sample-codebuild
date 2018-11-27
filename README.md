@@ -9,7 +9,9 @@ Enable build badge: true
 Source:
 - Github
 - (Connect codebuild to github)
-- Repository url: https://github.com/wizeline/sample-codebuild
+- Repository in my github account: sortigoza/sample-codebuild
+- report build status
+- rebuild every time the code changes
 
 Environment:
 - custom image
@@ -25,3 +27,9 @@ Buildspec:
 
 Artifacts:
 - no artifacts
+
+
+Original:
+https://github.com/wizeline/sample-codebuild
+Fork:
+https://github.com/sortigoza/sample-codebuild

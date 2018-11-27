@@ -19,14 +19,17 @@ phases:
       - echo "STAGE - install dependencies"
       - pip install -r requirements.txt
 
-      - echo "STAGE - run unit-tests"
-      - python HelloWorldTests.py
+      # # Step 1
+      # - echo "STAGE - run unit-tests"
+      # - python HelloWorldTests.py
 
-      - echo "STAGE - static code analysis - linting"
-      - pycodestyle --show-source --show-pep8 ./HelloWorld.py
+      # # Step 2
+      # - echo "STAGE - static code analysis - linting"
+      # - pycodestyle --show-source --show-pep8 ./HelloWorld.py
 
-      - echo "STAGE - security - dependency vulnerability scaner"
-      - snyk test
+      # # Step 3
+      # - echo "STAGE - security - dependency vulnerability scaner"
+      # - snyk test
   post_build:
     commands:
       - echo "COMPLETE"

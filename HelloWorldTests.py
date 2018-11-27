@@ -3,7 +3,7 @@ from HelloWorld import HelloWorld
 class TestCase(unittest.TestCase):
     def test_default_hello(self):
         hello = HelloWorld()
-        self.assertEqual(hello.message, 'Hello World')
+        self.assertEqual(hello.message, 'Hello World - not')
 
 if __name__ == '__main__':
     unittest.main()

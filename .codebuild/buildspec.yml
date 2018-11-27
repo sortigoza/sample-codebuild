@@ -12,7 +12,8 @@ version: 0.2
 
 phases:
   install:
-    - npm install -g snyk
+    commands:
+      - npm install -g snyk
   build:
     commands:
       - echo "STAGE - install dependencies"

@@ -23,9 +23,9 @@ phases:
       - echo "STAGE - run unit-tests"
       - python HelloWorldTests.py
 
-      # # Step 2
-      # - echo "STAGE - static code analysis - linting"
-      # - pycodestyle --show-source --show-pep8 ./HelloWorld.py
+      # Step 2
+      - echo "STAGE - static code analysis - linting"
+      - pycodestyle --show-source --show-pep8 ./HelloWorld.py
 
       # # Step 3
       # - echo "STAGE - security - dependency vulnerability scaner"

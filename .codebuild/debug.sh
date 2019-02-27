@@ -4,5 +4,5 @@ docker run \
 -ti \
 --rm \
 -v "$(pwd)":/app \
-python-node-ci \
+sortigoza/python-node-ci \
 bash

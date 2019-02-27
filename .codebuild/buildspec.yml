@@ -9,24 +9,23 @@ version: 0.2
 #   Security - dependency vulnerability scaner
 
 # Note: SNYK_TOKEN env var is needed
+# Note: SLACK_TOKEN env var is needed
 
 phases:
-  install:
-    commands:
-      - npm install -g snyk
   build:
     commands:
       - echo "STAGE - install dependencies"
-      - pip install -r requirements.txt
+      - ./.codebuild/install_dependencies.sh || .codebuild/send_slack.sh "install dependencies failed"
 
       - echo "STAGE - run unit-tests"
-      - python HelloWorldTests.py
+      - ./.codebuild/run_unit_tests.sh || .codebuild/send_slack.sh "unit-tests failed"
 
       - echo "STAGE - static code analysis - linting"
-      - pycodestyle --show-source --show-pep8 ./HelloWorld.py
+      - ./.codebuild/run_linter.sh || .codebuild/send_slack.sh "linter failed"
 
       - echo "STAGE - security - dependency vulnerability scaner"
-      - snyk test
+      - ./.codebuild/security_scan.sh || .codebuild/send_slack.sh "vulnerabilities found failed"
   post_build:
     commands:
       - echo "COMPLETE"
+      - .codebuild/send_slack.sh "pass" "good"

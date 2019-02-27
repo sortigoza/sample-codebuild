@@ -9,11 +9,9 @@ version: 0.2
 #   Security - dependency vulnerability scaner
 
 # Note: SNYK_TOKEN env var is needed
+# Note: SLACK_TOKEN env var is needed
 
 phases:
-  install:
-    commands:
-      - npm install -g snyk
   build:
     commands:
       - echo "STAGE - install dependencies"
@@ -30,4 +28,4 @@ phases:
   post_build:
     commands:
       - echo "COMPLETE"
-      - .codebuild/send_slack.sh "pass"
+      - .codebuild/send_slack.sh "pass" "good"

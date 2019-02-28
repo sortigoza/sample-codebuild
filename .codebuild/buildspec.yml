@@ -17,8 +17,8 @@ phases:
       - echo "STAGE - install dependencies"
       - ./.codebuild/install_dependencies.sh # || .codebuild/send_slack.sh "install dependencies failed"
 
-      # - echo "STAGE - run unit-tests"
-      # - ./.codebuild/run_unit_tests.sh # || .codebuild/send_slack.sh "unit-tests failed"
+      - echo "STAGE - run unit-tests"
+      - ./.codebuild/run_unit_tests.sh # || .codebuild/send_slack.sh "unit-tests failed"
 
       # - echo "STAGE - static code analysis - linting"
       # - ./.codebuild/run_linter.sh # || .codebuild/send_slack.sh "linter failed"

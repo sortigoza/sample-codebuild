@@ -1,2 +1,2 @@
-# marshmallow < 2.15.1
+marshmallow < 2.15.1
 pycodestyle >= 2.4.0

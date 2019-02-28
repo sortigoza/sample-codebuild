@@ -33,4 +33,3 @@ Original:
 https://github.com/wizeline/sample-codebuild
 Fork:
 https://github.com/sortigoza/sample-codebuild
-

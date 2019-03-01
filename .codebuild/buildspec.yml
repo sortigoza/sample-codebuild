@@ -15,17 +15,17 @@ phases:
   build:
     commands:
       - echo "STAGE - install dependencies"
-      - ./.codebuild/install_dependencies.sh #|| .codebuild/send_slack.sh "install dependencies failed"
+      - ./.codebuild/install_dependencies.sh || .codebuild/send_slack.sh "install dependencies failed"
 
       - echo "STAGE - run unit-tests"
-      - ./.codebuild/run_unit_tests.sh #|| .codebuild/send_slack.sh "unit-tests failed"
+      - ./.codebuild/run_unit_tests.sh || .codebuild/send_slack.sh "unit-tests failed"
 
       - echo "STAGE - static code analysis - linting"
-      - ./.codebuild/run_linter.sh #|| .codebuild/send_slack.sh "linter failed"
+      - ./.codebuild/run_linter.sh || .codebuild/send_slack.sh "linter failed"
 
       - echo "STAGE - security - dependency vulnerability scaner"
-      - ./.codebuild/security_scan.sh #|| .codebuild/send_slack.sh "vulnerabilities found failed"
+      - ./.codebuild/security_scan.sh || .codebuild/send_slack.sh "vulnerabilities found failed"
   post_build:
     commands:
       - echo "COMPLETE"
-      # - .codebuild/send_slack.sh "pass" "good"
+      - .codebuild/send_slack.sh "pass" "good"
